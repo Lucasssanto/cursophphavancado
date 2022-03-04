@@ -7,9 +7,8 @@
 </head>
 
 <body>
-    <?php require("curso1.php"); ?>
+    <?php include("curso1.php"); ?>
     <?php echo "<br>"; ?>
-    <?php require_once("curso1.php"); ?>
-    
+    <?php include_once("curso2.php"); ?>
 </body>
 </html>
