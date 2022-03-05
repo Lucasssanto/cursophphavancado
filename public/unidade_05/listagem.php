@@ -8,6 +8,7 @@
     $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
     $produtos .= "FROM produtos ";
     $resultado = mysqli_query($conecta, $produtos);
+    
     if(!$resultado) {
         die("Falha na consulta ao banco");   
     }
@@ -35,11 +36,24 @@
                 while($linha = mysqli_fetch_assoc($resultado)) {
             ?>
                 <ul>
-                    <li class="imagem"><img src="<?php echo  $linha["imagempequena"] ?>"></li>
-                    <li><h3><?php echo $linha["nomeproduto"] ?></h3></li>
-                    <li>Tempo de Entrega : <?php echo $linha["tempoentrega"] ?></li>
-                    <li>Preço unitário : <?php echo real_format($linha["precounitario"]) ?></li>
+                    <li class="imagem">
+                        <a href="detalhe.php?codigo=<?php echo $linha["produtoID"] ?> ">
+                            <img src="<?php echo  $linha["imagempequena"] ?>" >
+                         </a>
+                    </li>                
+                    <li>
+                        <h3>
+                            <?php echo $linha["nomeproduto"] ?>
+                        </h3>
+                    </li>
+                    <li>Tempo de Entrega : 
+                        <?php echo $linha["tempoentrega"] ?>
+                    </li>
+                    <li>Preço unitário : 
+                        <?php echo real_format($linha["precounitario"]) ?>
+                    </li>
                 </ul>
+
              <?php
                 }
             ?>           

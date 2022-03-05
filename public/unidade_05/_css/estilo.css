@@ -1,3 +1,26 @@
+:root {
+    --bg-primary: #292727;
+    --bg-second: rgba(24, 24, 24, 70);
+    --primary: linear-gradient(#FFD600, #080808);
+    --second: #fff;
+    --terciary: #32F484;
+    --html-color: #FF6D00;
+    --css-color: #039BE5;
+    --js-color: #FFD600;
+    --flutter-color: #40C4FF;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
 body { margin:0 }
 header {
     width:100%;

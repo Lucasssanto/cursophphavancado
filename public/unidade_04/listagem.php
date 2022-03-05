@@ -36,7 +36,7 @@
                         <li class="imagem"><img src="<?php echo $linha["imagempequena"]?>"></li>  
                         <li><h3><?php echo $linha["nomeproduto"]?></h3></li>   
                         <li>Tempo entrega: <?php echo $linha["tempoentrega"]?></li>  
-                        <li>Preço unitário:<?php echo $linha["precounitario"]?></li>  
+                        <li>Preço unitário:<?php echo real_format($linha["precounitario"])?></li>  
                     </ul>
                 <?php        
                     }

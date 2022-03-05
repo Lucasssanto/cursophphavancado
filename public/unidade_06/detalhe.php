@@ -48,13 +48,41 @@
             <div id="detalhe_produto">
                 <ul>
                     <li class="imagem"><img src="<?php echo $imagemgrande ?>"></li>
-                    <li><h2><?php echo $nomeproduto ?></h2></li>
-                    <li><b>Descrição: </b><?php echo $descricao ?></li>
-                    <li><b>Código de Barra: </b><?php echo $codigobarra ?></li>
-                    <li><b>Tempo de Entrega: </b><?php echo $tempoentrega ?></li>
-                    <li><b>Preço Revenda: </b><?php echo real_format($precorevenda) ?></li>
-                    <li><b>Preço Unitário: </b><?php echo real_format($precounitario) ?></li>
-                    <li><b>Estoque: </b><?php echo $estoque ?></li>
+                    <li>
+                        <h2>
+                            <?php echo $nomeproduto ?>
+                        </h2>
+                    </li>
+                    <li>
+                        <b>Descrição: 
+                            <?php echo $descricao ?>
+                        </b>
+                    </li>
+                    <li>
+                        <b>Código de Barra: 
+                             <?php echo $codigobarra ?>
+                    </b>
+                    </li>
+                    <li>
+                        <b>Tempo de Entrega:
+                            <?php echo $tempoentrega ?>
+                        </b>
+                    </li>
+                    <li>
+                        <b>Preço Revenda:
+                            <?php echo real_format($precorevenda) ?>
+                        </b>
+                    </li>
+                    <li><b>Preço Unitário:
+                            <?php echo real_format($precounitario) ?>
+                        </b>
+                    </li>
+                    <li>
+                        <b>
+                            Estoque: 
+                                <?php echo $estoque ?>
+                        </b>
+                    </li>
                 </ul>
                
             </div>
