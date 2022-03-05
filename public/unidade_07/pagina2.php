@@ -1,4 +1,13 @@
 <?php require_once("../../conexao/conexao.php"); ?>
+
+<?php 
+    //criar inicializacao de varivale de sucesso.
+    session_start();
+    
+    // definir valor
+    $_SESSION["usuario"] = "Lucas";
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -14,7 +23,9 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main>
-
+            <?php
+                 echo $_SESSION["usuario"];
+            ?> 
         </main>
 
         <?php include_once("../_incluir/rodape.php"); ?> 

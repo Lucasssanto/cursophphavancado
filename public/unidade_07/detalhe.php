@@ -1,5 +1,9 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 <?php
+      //iniciar variavel de sessao
+      session_start();
+
+
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
     } else {
@@ -7,9 +11,11 @@
     }
 
     // Consulta ao banco de dados
+
     $consulta = "SELECT * ";
     $consulta .= "FROM produtos ";
     $consulta .= "WHERE produtoID = {$produto_id} ";
+
     $detalhe    = mysqli_query($conecta,$consulta);
 
     // Testar erro
@@ -29,7 +35,7 @@
     }
 ?>
 <!doctype html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

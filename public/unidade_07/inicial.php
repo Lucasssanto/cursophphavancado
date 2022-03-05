@@ -15,7 +15,9 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main>  
-            
+           <?php
+                
+           ?> 
         </main>
 
         <?php include_once("../_incluir/rodape.php"); ?>  

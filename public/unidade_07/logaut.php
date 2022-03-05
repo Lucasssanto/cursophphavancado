@@ -1,12 +1,12 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 
 <?php 
-    //criar inicializacao de varivale de sucesso.
     session_start();
-    
-    // definir valor
-    $_SESSION["usuario"] = "Lucas";
-?>
+    unset($_SESSION["user_portal"]);
+    header("location:login.php");
+
+        
+?> 
 
 <!doctype html>
 <html>
@@ -22,16 +22,13 @@
         <?php include_once("../_incluir/topo.php"); ?>
         <?php include_once("../_incluir/funcoes.php"); ?>
         
-        <main>
-            <?php
-                 echo $_SESSION["usuario"];
-            ?> 
-            <p>
-                <a href="pagina2.php">Pagina 2</a>
-            </p>
+        <main>  
+           <?php
+                
+           ?> 
         </main>
 
-        <?php include_once("../_incluir/rodape.php"); ?> 
+        <?php include_once("../_incluir/rodape.php"); ?>  
     </body>
 </html>
 

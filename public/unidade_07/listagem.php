@@ -1,17 +1,23 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 
 <?php
+    //iniciar variavel de sessao
+     session_start();
+
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
 
     // Consulta ao banco de dados
-    $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
-    $produtos .= "FROM produtos ";
+    $produtos = " SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
+    $produtos .= " FROM produtos ";
+    
     if ( isset($_GET["produto"]) ) {
         $nome_produto = $_GET["produto"];
         $produtos .= "WHERE nomeproduto LIKE '%{$nome_produto}%' ";
     }
+
     $resultado = mysqli_query($conecta, $produtos);
+    
     if(!$resultado) {
         die("Falha na consulta ao banco");   
     }
@@ -42,6 +48,8 @@
             
             <div id="listagem_produtos"> 
             <?php
+                
+
                 while($linha = mysqli_fetch_assoc($resultado)) {
             ?>
                 <ul>
