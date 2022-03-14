@@ -16,13 +16,13 @@
             UPLOAD_ERR_EXTENSION => "Uma extensão do PHP interrompeu o upload do arquivo."
         ); 
 
-        return( $array_erro)[$numero];
+        return($array_erro)[$numero];
     }
      function uploadArquivo($arquivo_publicado,$minha_pasta) {
 
         if($arquivo_publicado["error"] == 0) {
             $pasta_temporaria = $arquivo_publicado["tmp_name"];
-            $arquivo          = $arquivo_publicado["name"];
+            $arquivo          = alterarNome($arquivo_publicado["name"]);
             $pasta            = $minha_pasta;
             $tipo             = $arquivo_publicado["type"];
             $extensao         = strrchr($arquivo, ".");
@@ -41,7 +41,7 @@
             }
         }
 
-        return $mensagem;
+        return array($mensagem, $arquivo );
         
      }
 
@@ -62,6 +62,6 @@
         $codigo_ano = $agora["year"] . "_" . $agora["yday"];
         $codigo_data = $agora["hours"] . $agora["minutes"] . $agora["seconds"];
         
-        return $resultado . "_" .  $codigo_ano . "_" .$codigo_data .  $extensao ;
+        return "foto_" . $resultado . "_" .  $codigo_ano . "_" .$codigo_data .  $extensao ;
      }
 ?>
