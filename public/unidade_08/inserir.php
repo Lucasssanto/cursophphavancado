@@ -1,28 +1,29 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 
 <?php 
-    // insercao no banco
-    if (isset( $_POST["cidade"] )) {
-        $nome       = $_POST["nometransportadora"];
-        $endereco   = $_POST["endereco"];
-        $telefone   = $_POST["telefone"];
-        $cidade     = $_POST["cidade"];
-        $estado     = $_POST["estado"];
-        $cep        = $_POST["cep"];
-        $cnpj       = $cnpj["cnpj "];
+    //inserção no banco
+    if (isset($_POST["cidade"] )) {
         
-
+        $nome        = $_POST ["nometrasnportadora"];
+        $endereco    = $_POST ["endereco"];
+        $telefone    = $_POST ["telefone"];
+        $cidade      = $_POST ["cidade"];
+        $estado      = $_POST ["estados"];
+        $cep         = $_POST ["cep"];
+        $cnpj        = $_POST ["cnpj"];
+        
         $inserir    = "INSERT INTO transportadoras ";
         $inserir   .= "(nometransportadora, endereco, telefone, cidade, estadoID, cep, cnpj)";
-        $inserir   .= "VALUES ('$nome', '$endereco', '$telefone,'$cidade', '$estado', '$cep', '$cnpj')"; 
+        $inserir   .= "VALUES ('$nome', '$endereco', '$telefone,'$cidade', $estado, '$cep', '$cnpj')"; 
 
         $operacao_inserir = mysqli_query($conecta,$inserir);
-        if ( !$operacao_iserir) {
-            die("Falha na inserçao");
-        } else {
-            header("location:listagem.php");
+        if(!$operacao_inserir) {
+            die("Falha na inserção");
+        }else { header("location:listagem.php");
+        
         }
     }
+
 
     //selecao de estados
      $estados        = " SELECT nome, estadoID FROM estados ";
@@ -51,15 +52,16 @@
         <main>  
             <div id="janela_formulario">
                 <form action="inserir.php" method="POST">
-                    <input type="text" name="nometrasnportadora" placeholder="Nome da transportadora">
+                    <input type="text" name="nometrasnportadora" placeholder="Nome ">
                     <input type="text" name="endereco" placeholder="Endereço">
                     <input type="text" name="cidade" placeholder="Cidade">
-                    <section name="estados">
+                    <select name="estados">
                             <?php while($linha = mysqli_fetch_assoc($linha_estados) ) { ?>
                                 <option value=" <?php echo $linha["estadoID"]; ?> ">
-                                    <?php echo $linha["nome"]; ?>   
-                            <?php } ?>  
-                    </section>
+                                    <?php echo $linha["nome"]; ?>    </option>
+                                    <?php } ?>  
+                               
+                    </select>                   
                     <input type="text" name="telefone" placeholder="Telefone">
                     <input type="text" name="cep" placeholder="CEP">
                     <input type="text" name="cnpj" placeholder="CNPJ">
