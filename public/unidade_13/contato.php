@@ -1,4 +1,15 @@
 <?php require_once("../../conexao/conexao.php"); ?>
+<?php include_once("../_incluir/funcoes.php"); ?> 
+<?php 
+    if(isset($_POST['nome'])) {
+        if(enviarMensagem($_POST)) {
+            $mensagem = "Messangem enviada com sucesso." ;  
+        } else {
+            $mensagem = "Erro ao envair a mensagem.";
+        }
+    }
+
+?>
 
 <!doctype html>
 <html>
@@ -13,7 +24,7 @@
 
     <body>
         <?php include_once("../_incluir/topo.php"); ?>
-        <?php include_once("../_incluir/funcoes.php"); ?> 
+        
         
         <main> 
             <div id="janela_formulario">

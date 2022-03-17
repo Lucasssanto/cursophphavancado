@@ -64,4 +64,26 @@
         
         return "foto_" . $resultado . "_" .  $codigo_ano . "_" .$codigo_data .  $extensao ;
      }
+
+     function enviarMensagem($dados) {
+         // Dados do formulario 
+         $nome              = $dados['nome'];
+         $email             = $dados['email'];
+         $mensagem_usuario  = $dados['mensagem'];
+
+         // Criar variaveis de envio
+         $destino           = "suporte@imediabrasil.com.br";
+         $remetente         = "imidiabrasil@imediabrasil.com.br";
+         $assunto           = "Mensagem do site";
+
+         // Montar o corpo da menssagem
+         $mensagem          = "O usuário " . $nome . " envio uma mensagem" . "<BR>";
+         $mensagem         .= "email do usuário: " . $email . "<BR>";
+         $mensagem         .= "mensagem" . "<BR>";
+         $mensagem         .= $mensagem_usuario;
+
+         
+         return mail($destino, $assunto, $mensagem, $remetente);
+
+     }
 ?>

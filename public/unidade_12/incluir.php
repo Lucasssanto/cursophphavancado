@@ -3,8 +3,8 @@
 <?php
     // conferir se a navegacao veio pelo preenchimento do formulario
     if( isset($_POST['nomeproduto']) ) {
-        $resultado1 = publicarImagem($_FILES['foto_grande']);
-        $resultado2 = publicarImagem($_FILES['foto_pequena']);
+        $resultado1 = publicarImagem($_FILES['foto_grande'],"images/product_images");
+        $resultado2 = publicarImagem($_FILES['foto_pequena'],"images/product_images");
 
         $mensagem1 = $resultado1[0]; 
         $mensagem2 = $resultado2[0];
@@ -17,8 +17,8 @@
         $precounitario  = $_POST['precounitario'];
         $precorevenda   = $_POST['precorevenda'];
         $estoque        = $_POST['estoque'];
-        $imagem_grande  = $resultado1[1];
-        $imagem_pequena = $resultado2[1];
+        $imagem_grande  = "images/product_images" $resultado1[1];
+        $imagem_pequena = "images/product_images" $resultado2[1];
         
         // Insercao no banco
         $inserir = "INSERT INTO produtos ";
